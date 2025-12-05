@@ -1,0 +1,10 @@
+
+include: "rules/st_correct.smk"
+
+rule all:
+    input:
+        expand(
+            rules.st_correct.output.img,
+            sub=["01", "02"],
+            run=["01", "02", "03"],
+        ),
