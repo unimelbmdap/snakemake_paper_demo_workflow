@@ -5,8 +5,5 @@ requires-python = ">=3.11"
 dependencies = [
     "nibabel>=5.3.2",
     "numpy>=2.3.5",
-    "pybids>=0.21.0",
-    "s3fs>=2025.12.0",
     "snakemake>=9.14.1",
-    "snakemake-storage-plugin-s3>=0.3.6",
 ]
