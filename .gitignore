@@ -211,3 +211,5 @@ data/
 results/
 *.swp
 tmp/
+logs/
+containers
