@@ -6,7 +6,7 @@ rule mot_correct:
         img="results/sub-{sub_num}/func/sub-{sub_num}_task-{task}_mc.nii.gz",
     params:
         base="data/sub-{sub_num}/func/sub-{sub_num}_task-stopsignal_bold.nii.gz[0]",
-    resources: mem="10GB"
+    resources: mem="1GB"
     threads: 2
     container: "docker://ghcr.io/neurodesk/afni_25.2.03:20250717"
     log: "logs/mot_correct/mot_correct_{sub_num}_{task}.txt"
