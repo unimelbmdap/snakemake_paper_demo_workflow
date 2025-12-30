@@ -7,13 +7,10 @@ rule coreg:
         img="results/sub-{sub_num}/anat/sub-{sub_num}_T1w_coreg.nii.gz",
     params:
         anat_stem=subpath(input.anat, strip_suffix=".nii.gz", basename=True),
-    threads: 1
-    container:
-        #"docker://ghcr.io/neurodesk/afni_25.2.03:20250717"
-        "containers/afni.sif"
+    container: "docker://ghcr.io/neurodesk/afni_25.2.03:20250717"
     shadow: "shallow"
-    log:
-        "logs/coreg/coreg_{sub_num}.txt"
+    resources: mem="4GB"
+    log: "logs/coreg/coreg_{sub_num}.txt"
     shell:
         """
         align_epi_anat.py \
@@ -24,4 +21,3 @@ rule coreg:
         > {log} 2>&1
         3dcopy {params.anat_stem}_al+orig {output.img} >> {log} 2>& 1
         """
-

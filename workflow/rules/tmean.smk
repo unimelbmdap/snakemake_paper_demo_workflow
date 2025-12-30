@@ -8,15 +8,12 @@ rule tmean:
         )
     output:
         img="results/sub-{sub_num}/func/sub-{sub_num}_mean.nii.gz",
-    container:
-        #"docker://ghcr.io/neurodesk/afni_25.2.03:20250717"
-        "containers/afni.sif"
+    container: "docker://ghcr.io/neurodesk/afni_25.2.03:20250717"
+    resources: mem="1GB"
     shadow: "shallow"
-    log:
-        "logs/tmean/tmean_{sub_num}.txt"
+    log: "logs/tmean/tmean_{sub_num}.txt"
     shell:
         """
         3dTcat -prefix tcat.nii.gz {input.imgs} > {log} 2>&1
         3dTstat -prefix {output.img} -mean tcat.nii.gz > {log} 2>&1
         """
-
