@@ -1,4 +1,3 @@
-
 include: "rules/common.smk"
 include: "rules/mot_correct.smk"
 include: "rules/tmean.smk"
@@ -6,7 +5,4 @@ include: "rules/coreg.smk"
 
 rule all:
     input:
-        expand(
-            rules.coreg.output.img,
-            sub_num=SUB_NUMS,
-        ),
+        expand(rules.coreg.output.img, sub_num=SUB_NUMS)
