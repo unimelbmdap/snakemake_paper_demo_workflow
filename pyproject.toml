@@ -3,7 +3,7 @@ name = "snakemake-paper-demo-workflow"
 version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
-    "snakemake>=9.14.1",
+    "snakemake==9.9.0",
 ]
 
 [tool.poe.tasks]

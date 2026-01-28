@@ -14,6 +14,9 @@ rule tmean:
     log: "logs/tmean/tmean_{sub_num}.txt"
     shell:
         """
+        # concatenate the input images over time into one output image
+        # (note that the `> {log} 2>&1` redirects the screen messages to the log path)
         3dTcat -prefix tcat.nii.gz {input.imgs} > {log} 2>&1
+        # average the concatenated image over time
         3dTstat -prefix {output.img} -mean tcat.nii.gz > {log} 2>&1
         """

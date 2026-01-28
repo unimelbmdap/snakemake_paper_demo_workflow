@@ -10,14 +10,15 @@ rule coreg:
     container: "docker://ghcr.io/neurodesk/afni_25.2.03:20250717"
     shadow: "shallow"
     resources: mem="4GB"
+    threads: 2
     log: "logs/coreg/coreg_{sub_num}.txt"
     shell:
         """
+        # run the coregistration
         align_epi_anat.py \
-            -anat {input.anat} \
-            -epi {input.func} \
-            -epi_base 0 \
-            -giant_move \
+            -anat {input.anat} -epi {input.func} \
+            -epi_base 0 -giant_move \
         > {log} 2>&1
+        # convert the resulting files into NIFTI format
         3dcopy {params.anat_stem}_al+orig {output.img} >> {log} 2>& 1
         """
