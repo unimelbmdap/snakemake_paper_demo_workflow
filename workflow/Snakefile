@@ -5,4 +5,6 @@ include: "rules/coreg.smk"
 
 rule all:
     input:
+        # replace the `{sub_num}` wildcard in the output from the coregistration
+        # step with the subject number for each subject (e.g., '10159')
         expand(rules.coreg.output.img, sub_num=SUB_NUMS)
