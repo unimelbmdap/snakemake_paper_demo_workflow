@@ -207,9 +207,9 @@ marimo/_lsp/
 __marimo__/
 
 .snakemake
-data/
 results/
 *.swp
 tmp/
 logs/
 containers
+data
