@@ -32,6 +32,7 @@ Source: [Install Ubuntu packages](https://apptainer.org/docs/admin/main/installa
 
 The default expectation is that the raw data is contained within the `data` subdirectory.
 See the [`snakemake_paper_demo_workflow_data`](https://github.com/unimelbmdap/snakemake_paper_demo_workflow_data) repository for a Snakemake workflow to acquire this raw data.
+Note that this `data` directory cannot be a symbolic link.
 
 ## Usage
 
@@ -47,3 +48,4 @@ The `--dry-run` argument can also be used to see what Snakemake would execute.
 
 * We are using Snakemake version 9.9.0 because the `threads` directive does not limit the job scheduling in current versions (see [the Github issue](https://github.com/snakemake/snakemake/issues/3815)).
 * The AFNI container that is downloaded is quite large (3 GB). You can use the `APPTAINER_CACHEDIR` environment variable to specify the location of this container download. The size of this container means that the (first) execution of the workflow can take a while.
+* The AFNI container is downloaded from the Github container registry. It can (potentially) help with download speed to authenticate to Github; see the [OCI Image Registries](https://apptainer.org/docs/user/main/registry.html) documentation for how to authenticate.
