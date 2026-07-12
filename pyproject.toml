@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [tool.poe.tasks]
-snakemake = "snakemake --profile default"
+snakemake = "snakemake --use-apptainer --cores all"
 snakemake-lint = "snakemake --lint"
 snakemake-fmt = "snakefmt . --diff"
 snakemake-rulegraph.shell = "snakemake --rulegraph | dot -Tsvg -o rulegraph.svg"

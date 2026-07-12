@@ -3,10 +3,10 @@ rule mot_correct:
     input:
         img="data/sub-{sub_num}/func/sub-{sub_num}_task-{task}_bold.nii.gz",
     output:
-        img="results/sub-{sub_num}/func/sub-{sub_num}_task-{task}_mc.nii.gz",
+        img="results/sub-{sub_num}/func/sub-{sub_num}_task-{task}_desc-mc.nii.gz",
     params:
         base="data/sub-{sub_num}/func/sub-{sub_num}_task-stopsignal_bold.nii.gz[0]",
     resources: mem="1GB"
-    container: "docker://ghcr.io/neurodesk/afni_25.2.03:20250717"
+    container: "docker://ghcr.io/neurodesk/afni_26.0.07:20260128"
     log: "logs/mot_correct/mot_correct_{sub_num}_{task}.txt"
     script: "../scripts/mot_correct.py"
