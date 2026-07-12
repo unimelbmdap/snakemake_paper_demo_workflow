@@ -3,7 +3,7 @@ rule mot_correct:
     input:
         img="data/sub-{sub_num}/func/sub-{sub_num}_task-{task}_bold.nii.gz",
     output:
-        img="results/sub-{sub_num}/func/sub-{sub_num}_task-{task}_desc-mc.nii.gz",
+        img="results/sub-{sub_num}/func/sub-{sub_num}_task-{task}_desc-mc_bold.nii.gz",
     params:
         base="data/sub-{sub_num}/func/sub-{sub_num}_task-stopsignal_bold.nii.gz[0]",
     resources: mem="1GB"
